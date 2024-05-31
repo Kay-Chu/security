@@ -64,24 +64,28 @@
     <div class="content">
         <h2 id="users">Users</h2>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-            </tr>
-            <!-- Example rows (to be dynamically generated from your PHP backend) -->
-            <tr>
-                <td>1</td>
-                <td>JohnDoe</td>
-                <td>johndoe@example.com</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>JaneDoe</td>
-                <td>janedoe@example.com</td>
-            </tr>
-            <!-- Add more rows here based on actual data -->
-        </table>
+        <table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <!-- Example rows (to be dynamically generated from your PHP backend) -->
+    <tr>
+        <td>1</td>
+        <td>JohnDoe</td>
+        <td>johndoe@example.com</td>
+        <td><a href="user_profile.php?id=1"><button>View Profile</button></a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>JaneDoe</td>
+        <td>janedoe@example.com</td>
+        <td><a href="user_profile.php?id=2"><button>View Profile</button></a></td>
+    </tr>
+    <!-- Add more rows here based on actual data -->
+</table>
 
         <h2 id="option2">Option 2</h2>
         <p>Content for option 2...</p>

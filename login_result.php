@@ -7,12 +7,6 @@
 <?php require_once 'connect_db.php';?>
 <?php
 
-
-// $conn = new mysqli("localhost", "root", "", "test");
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
 $id = $_POST["id"];
 $pwd = $_POST["pwd"];
 $role = $_POST["role"];
