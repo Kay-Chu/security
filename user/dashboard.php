@@ -52,6 +52,7 @@
         <h3>User Dashboard</h3>
         <ul>
             <li><a href="#stocks">Manage Stocks</a></li>
+            <li><a href="#trading">Stock Trading</a></li>
             <li><a href="#profile">Profile</a></li>
             <li><a href="#settings">Settings</a></li>
         </ul>
@@ -86,12 +87,75 @@
             <!-- Add more rows here based on actual data -->
         </table>
 
+        <h2 id="trading">Stock Trading</h2>
+        <button id="trade-button">Manage Stock Trading</button>
+        <div id="trade-form" style="display: none;">
+            <h3>Encrypted Stock Trading</h3>
+            <form action="stock_trading.php" method="post">
+                <label for="stock-id">Stock ID:</label>
+                <input type="text" id="stock-id" name="stock-id" required>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+
+                <button type="submit">Submit</button>
+                
+            </form>
+        </div>
+
         <h2 id="profile">Profile</h2>
         <p>Profile details here...</p>
 
         <h2 id="settings">Settings</h2>
         <p>Settings configuration here...</p>
     </div>
-    
+
+    <script>
+        document.getElementById('trade-button').addEventListener('click', () => {
+            document.getElementById('trade-form').style.display = 'block';
+        });
+    </script>
+
+
+
+
+<script>
+
+
+
+document.querySelector('#trade-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  // Get the form data
+  const stockId = document.getElementById('stock-id').value;
+  const quantity = document.getElementById('quantity').value;
+
+  // Encrypt the form data using AES
+  const encryptedData = await encryptAES({ stockId, quantity });
+
+  // Create a hidden input field to hold the encrypted data
+  const encryptedDataInput = document.createElement('input');
+  encryptedDataInput.type = 'hidden';
+  encryptedDataInput.name = 'encrypted-data';
+  encryptedDataInput.value = encryptedData;
+
+  // Add the encrypted data input to the form
+  document.querySelector('#trade-form').appendChild(encryptedDataInput);
+
+  // Submit the form
+  document.querySelector('#trade-form').submit();
+});
+
+async function encryptAES(data) {
+  const key = 'secret_key';
+  const iv = 'initialization_vector';
+  // Encrypt the data using AES and return the encrypted value
+  return `${key}:${iv}:${JSON.stringify(data)}`;
+}
+</script>
 </body>
+
+
+
 </html>
