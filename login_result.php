@@ -3,6 +3,8 @@
 <title>Login Result</title>
 </head>
 <body>
+
+<?php require_once 'connect_db.php';?>
 <?php
 
 
@@ -54,8 +56,8 @@ if ($role === "admin") {
         echo "<h2>User ID does not exist.</h2>";
     }
 }
+$conn->close();
 
-// mysqli_close($conn);
 ?>
 </body>
 </html>

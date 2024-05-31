@@ -4,29 +4,16 @@
 </head>
 <body>
 
+<?php require_once 'connect_db.php';?>
 <?php
 
 
 //$conn = new mysqli("security-mysql.mysql.database.azure.com", "admin1", "R7sn7ZgAbOzFDXMJYl", "test");
-// $conn = mysqli_init();
-// $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
-// $conn->ssl_set(NULL, "./microsoft_certificate.pem", "./ca.pem", NULL, NULL);
-// $conn->real_connect("security-mysql.mysql.database.azure.com", "admin1", "R7sn7ZgAbOzFDXMJYl", "test");
 
 
-// if ($conn->connect_error) 
-// {
-//     die("Connection failed: ". $conn->connect_error);
-// } 
-$conn = mysqli_init();
-$conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
-$conn->ssl_set(NULL, "./microsoft_certificate.pem", "./ca.pem", NULL, NULL);
 
-if (!$conn->real_connect("security-mysql.mysql.database.azure.com", "admin1", "R7sn7ZgAbOzFDXMJYl", "test")) {
-    $errMsg = "Connection failed: " . $conn->connect_error;
-    echo "<h3>$errMsg</h3>";
-    exit;
-}
+
+
 
 
 $id = $_POST["id"]; 
