@@ -5,10 +5,11 @@
 <body>
 <?php
 
-$conn = new mysqli("localhost", "root", "", "test");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
+// $conn = new mysqli("localhost", "root", "", "test");
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
 $id = $_POST["id"];
 $pwd = $_POST["pwd"];
@@ -54,7 +55,7 @@ if ($role === "admin") {
     }
 }
 
-mysqli_close($conn);
+// mysqli_close($conn);
 ?>
 </body>
 </html>
